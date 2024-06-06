@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 function Tarefa() {
   const [input, setInput] = useState('')
@@ -6,11 +6,27 @@ function Tarefa() {
     'Pagar a conta de luz',
     'Estudar React JS'
   ]) 
+
+  useEffect(()=>{
+    const tarefaStorage = localStorage.getItem('@tarefa')
+
+    if(tarefaStorage){
+        setTarefa(JSON.parse(tarefaStorage))
+    }
+
+  }, [])
+
+  useEffect(()=>{
+    
+    localStorage.setItem('@tarefa', JSON.stringify(tarefa))
+    
+
+  }, [tarefa])
   
   function handlerRegister(e){
     e.preventDefault()
     setTarefa([...tarefa, input])
-    setInput(' ')
+    setInput('')
   }
 
 
