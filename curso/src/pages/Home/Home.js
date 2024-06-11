@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom"
+import {Link, useParams} from "react-router-dom"
 import Nutrientes from '../../components/Nutrientes'
 
 
@@ -9,7 +9,9 @@ function Home(){
             <Link to={'/sobre'}>Sobre</Link>
             <br></br>
             <Link to={'/contato'}>Contato</Link>
-           
+            <hr/>
+
+            <Link to={'/produto/1'}>Acessar produtos </Link>
         </div>
     )
 
